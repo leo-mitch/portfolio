@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProjectLogo, Section, Separator, Shell, Tag } from "@/components/layout";
 import { ArrowUpRightIcon, GithubIcon } from "@/components/icons";
-import { profile, projects } from "@/data/profile";
+import { profile, projects, stackIcons } from "@/data/profile";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -99,7 +99,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
       <Section id="tech" title="Tech Stack">
         <div className="flex flex-wrap gap-2 p-4">
           {p.skills.map((s) => (
-            <Tag key={s} reveal>
+            <Tag key={s} reveal icon={stackIcons[s]}>
               {s}
             </Tag>
           ))}

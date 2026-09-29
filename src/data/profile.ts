@@ -70,6 +70,32 @@ export const stack = [
   "Wireshark",
 ];
 
+// Brand logos (monochrome, tinted via CSS mask) for stack/skill tags that have one.
+// Sourced from Simple Icons and self-hosted in /public/stack. Names without an
+// entry simply render as text.
+export const stackIcons: Record<string, string> = {
+  TypeScript: "/stack/typescript.svg",
+  JavaScript: "/stack/javascript.svg",
+  Python: "/stack/python.svg",
+  C: "/stack/c.svg",
+  "C++": "/stack/cpp.svg",
+  "C#": "/stack/csharp.svg",
+  Java: "/stack/java.svg",
+  PHP: "/stack/php.svg",
+  Solidity: "/stack/solidity.svg",
+  React: "/stack/react.svg",
+  "Next.js": "/stack/nextjs.svg",
+  "Node.js": "/stack/nodejs.svg",
+  SvelteKit: "/stack/sveltekit.svg",
+  PostgreSQL: "/stack/postgresql.svg",
+  Docker: "/stack/docker.svg",
+  Git: "/stack/git.svg",
+  Linux: "/stack/linux.svg",
+  Bash: "/stack/bash.svg",
+  "Burp Suite": "/stack/burpsuite.svg",
+  Wireshark: "/stack/wireshark.svg",
+};
+
 export type Position = {
   title: string;
   period: string;

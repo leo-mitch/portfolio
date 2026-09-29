@@ -9,6 +9,7 @@ import {
   projects,
   socials,
   stack,
+  stackIcons,
 } from "@/data/profile";
 import { Contributions } from "@/components/contributions";
 import { ProjectCard } from "@/components/project-card";
@@ -53,7 +54,7 @@ export default function Home() {
         <Section id="stack" title="Stack">
           <div className="flex flex-wrap gap-2 p-4">
             {stack.map((s) => (
-              <Tag key={s} reveal>
+              <Tag key={s} reveal icon={stackIcons[s]}>
                 {s}
               </Tag>
             ))}
@@ -310,7 +311,7 @@ function Experience() {
                 </ul>
                 <div className="mt-2 flex flex-wrap gap-1.5">
                   {p.skills.map((s) => (
-                    <Tag key={s}>{s}</Tag>
+                    <Tag key={s} icon={stackIcons[s]}>{s}</Tag>
                   ))}
                 </div>
               </details>

@@ -103,11 +103,35 @@ export function Section({
   );
 }
 
-export function Tag({ children, reveal }: { children: ReactNode; reveal?: boolean }) {
+export function Tag({
+  children,
+  reveal,
+  icon,
+}: {
+  children: ReactNode;
+  reveal?: boolean;
+  icon?: string;
+}) {
   return (
     <span
       data-reveal={reveal || undefined}
-      className="rounded-md border border-line bg-card px-2 py-0.5 font-mono text-xs text-foreground/80 transition hover:border-accent/60 hover:text-accent">
+      className="inline-flex items-center gap-1.5 rounded-md border border-line bg-card px-2 py-0.5 font-mono text-xs text-foreground/80 transition hover:border-accent/60 hover:text-accent">
+      {icon && (
+        <span
+          aria-hidden
+          className="size-3.5 shrink-0 bg-current"
+          style={{
+            maskImage: `url(${icon})`,
+            WebkitMaskImage: `url(${icon})`,
+            maskRepeat: "no-repeat",
+            WebkitMaskRepeat: "no-repeat",
+            maskPosition: "center",
+            WebkitMaskPosition: "center",
+            maskSize: "contain",
+            WebkitMaskSize: "contain",
+          }}
+        />
+      )}
       {children}
     </span>
   );
