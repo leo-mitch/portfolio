@@ -24,7 +24,7 @@ export const profile = {
   pronouns: "he/him",
   about: [
     "I'm a computer science student in the co-op program at the Université de Sherbrooke, with a strong focus on cybersecurity and full-stack development. I like building things end to end — from mobile apps and web platforms to security tooling.",
-    "I co-founded Classmo, a student book marketplace that reached 200+ users in under a month. I also won at my first ever Hackathon. In my free time I hunt bugs and I play CTFs — I helped lead the team \"Lawsuit\" to the top 10 in Canada on Hack The Box. I'm currently working toward my CPTS certification and I'm open to co-op internships.",
+    "I co-founded Classmo, a student book marketplace that reached 200+ users in under a month, and won Best Use of Gemini API at my first-ever hackathon. In my free time I hunt bugs and I play CTFs — I helped lead the team \"Lawsuit\" to the top 10 in Canada on Hack The Box. I'm currently working toward my CPTS certification and I'm open to co-op internships.",
   ],
 };
 
