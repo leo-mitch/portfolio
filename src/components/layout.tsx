@@ -116,12 +116,23 @@ export function Tag({ children, reveal }: { children: ReactNode; reveal?: boolea
 export function ProjectLogo({
   title,
   label,
+  image,
   size = "md",
 }: {
   title: string;
   label?: string;
+  image?: string;
   size?: "md" | "lg";
 }) {
+  const cls = size === "lg" ? "size-20 text-2xl rounded-2xl" : "size-14 text-lg rounded-xl";
+  const base = `flex shrink-0 items-center justify-center overflow-hidden border border-line bg-card transition group-hover:border-accent/60 ${cls}`;
+  if (image) {
+    return (
+      <span className={base}>
+        <img src={image} alt={`${title} logo`} className="size-full object-contain" loading="lazy" />
+      </span>
+    );
+  }
   const letters =
     label ??
     title
@@ -130,14 +141,7 @@ export function ProjectLogo({
       .join("")
       .slice(0, 2)
       .toUpperCase();
-  const cls = size === "lg" ? "size-20 text-2xl rounded-2xl" : "size-14 text-lg rounded-xl";
-  return (
-    <span
-      className={`dot-grid flex shrink-0 items-center justify-center border border-line bg-card font-mono font-bold text-accent transition group-hover:border-accent/60 ${cls}`}
-    >
-      {letters}
-    </span>
-  );
+  return <span className={`dot-grid font-mono font-bold text-accent ${base}`}>{letters}</span>;
 }
 
 export function Footer() {

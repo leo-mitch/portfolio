@@ -149,6 +149,7 @@ export type Project = {
   skills: string[];
   featured?: boolean; // shown on the home page
   logo?: string; // overrides the auto-generated logo letters
+  image?: string; // logo image (from /public); falls back to letters when absent
 };
 
 export const projects: Project[] = [
@@ -156,6 +157,7 @@ export const projects: Project[] = [
     slug: "classmo",
     featured: true,
     title: "Classmo",
+    image: "/classmo.png",
     tagline: "A student book marketplace for iOS & Android",
     period: "2026",
     status: "Live",
@@ -170,6 +172,7 @@ export const projects: Project[] = [
     slug: "mamdani",
     featured: true,
     title: "Mamdani",
+    image: "/mamdani.png",
     tagline: "AI civic issue reporting for cities",
     period: "2026",
     status: "Archived",
@@ -196,6 +199,7 @@ export const projects: Project[] = [
   {
     slug: "slan-revolution",
     title: "Slan Révolution",
+    image: "/slan.webp",
     tagline: "Full-stack site for a 160+ person LAN event",
     period: "2026",
     status: "Archived",

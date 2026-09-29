@@ -44,7 +44,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/85 to-transparent" />
         <div className="relative flex flex-col gap-5 sm:flex-row sm:items-end">
           <span data-intro>
-            <ProjectLogo title={p.title} label={p.logo} size="lg" />
+            <ProjectLogo title={p.title} label={p.logo} image={p.image} size="lg" />
           </span>
           <div className="flex-1">
             <h1 data-intro-title className="text-4xl font-bold tracking-tight">
