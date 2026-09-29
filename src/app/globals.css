@@ -1,26 +1,155 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #040604;
+  --foreground: #e6f2e8;
+  --muted: #7d8f81;
+  --border: #16241a;
+  --card: #0a100b;
+  --accent: #22c55e;
+  --accent-bright: #4ade80;
+  --accent-dim: #14532d;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-line: var(--border);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+  --color-accent-bright: var(--accent-bright);
+  --color-accent-dim: var(--accent-dim);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--accent);
+  color: #000;
+}
+
+/* Diagonal striped band used between sections */
+.separator {
+  background-image: repeating-linear-gradient(
+    315deg,
+    var(--border) 0 1px,
+    transparent 1px 10px
+  );
+}
+
+/* Dot grid for the cover banner */
+.dot-grid {
+  background-image: radial-gradient(
+    color-mix(in oklab, var(--accent) 35%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 14px 14px;
+}
+
+.glow-text {
+  text-shadow:
+    0 0 12px color-mix(in oklab, var(--accent) 60%, transparent),
+    0 0 40px color-mix(in oklab, var(--accent) 30%, transparent);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s steps(1) infinite;
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .chevron {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blink {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ---------- GSAP hooks ---------- */
+
+/* Hide animated elements until GSAP reveals them (no flash before hydration).
+   Reduced-motion users always see everything; no-JS is handled in layout.tsx. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-intro],
+  [data-intro-title],
+  [data-scramble],
+  [data-typewriter],
+  [data-split],
+  [data-reveal] {
+    visibility: hidden;
+  }
+}
+
+/* GSAP owns transform/opacity on these; keep CSS transitions to colors only
+   (unlayered, so it wins over Tailwind's `transition` utility). */
+[data-intro],
+[data-reveal],
+[data-magnetic] {
+  transition-property: color, background-color, border-color, box-shadow, translate;
+}
+
+[data-magnetic],
+[data-parallax] {
+  will-change: transform;
+}
+
+/* Pointer-following glow; --mx/--my are set by GSAP on [data-spotlight]. */
+.spotlight {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in oklab, var(--accent) 14%, transparent),
+    transparent 70%
+  );
+}
+[data-spotlight]:hover > .spotlight {
+  opacity: 1;
+}
+
+/* Larger cursor-following glow for the cover hero. */
+.cover-glow {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s;
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in oklab, var(--accent) 22%, transparent),
+    transparent 65%
+  );
+}
+[data-spotlight]:hover > .cover-glow {
+  opacity: 1;
 }
