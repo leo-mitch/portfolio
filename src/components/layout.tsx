@@ -125,7 +125,7 @@ export function ProjectLogo({
   size?: "md" | "lg";
 }) {
   const cls = size === "lg" ? "size-20 text-2xl rounded-2xl" : "size-14 text-lg rounded-xl";
-  const base = `flex shrink-0 items-center justify-center overflow-hidden border border-line bg-card transition group-hover:border-accent/60 ${cls}`;
+  const base = `dot-grid flex shrink-0 items-center justify-center overflow-hidden border border-line bg-card transition group-hover:border-accent/60 ${cls}`;
   if (image) {
     return (
       <span className={base}>
@@ -141,7 +141,7 @@ export function ProjectLogo({
       .join("")
       .slice(0, 2)
       .toUpperCase();
-  return <span className={`dot-grid font-mono font-bold text-accent ${base}`}>{letters}</span>;
+  return <span className={`font-mono font-bold text-accent ${base}`}>{letters}</span>;
 }
 
 export function Footer() {
