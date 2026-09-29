@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { profile } from "@/data/profile";
+import { Particles } from "@/components/particles";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <noscript>
           <style>{`[data-intro],[data-intro-title],[data-scramble],[data-typewriter],[data-split],[data-reveal]{visibility:visible!important}`}</style>
         </noscript>
+        <Particles />
         {children}
       </body>
     </html>

@@ -59,7 +59,7 @@ export function Shell({ children }: { children: ReactNode }) {
   return (
     <Motion>
       <Header />
-      <main className="mx-auto flex min-h-[calc(100dvh-3rem)] max-w-3xl flex-col border-x border-line">
+      <main className="relative mx-auto flex min-h-[calc(100dvh-3rem)] max-w-3xl flex-col border-x border-line bg-background">
         {children}
         <div className="mt-auto">
           <Separator />
