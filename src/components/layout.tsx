@@ -113,13 +113,23 @@ export function Tag({ children, reveal }: { children: ReactNode; reveal?: boolea
   );
 }
 
-export function ProjectLogo({ title, size = "md" }: { title: string; size?: "md" | "lg" }) {
-  const letters = title
-    .split(/\s+/)
-    .map((w) => w[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
+export function ProjectLogo({
+  title,
+  label,
+  size = "md",
+}: {
+  title: string;
+  label?: string;
+  size?: "md" | "lg";
+}) {
+  const letters =
+    label ??
+    title
+      .split(/\s+/)
+      .map((w) => w[0])
+      .join("")
+      .slice(0, 2)
+      .toUpperCase();
   const cls = size === "lg" ? "size-20 text-2xl rounded-2xl" : "size-14 text-lg rounded-xl";
   return (
     <span

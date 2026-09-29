@@ -148,6 +148,7 @@ export type Project = {
   description: string[];
   skills: string[];
   featured?: boolean; // shown on the home page
+  logo?: string; // overrides the auto-generated logo letters
 };
 
 export const projects: Project[] = [
@@ -221,6 +222,7 @@ export const projects: Project[] = [
   {
     slug: "cve-2024-25641-cacti",
     featured: true,
+    logo: "CVE",
     title: "CVE-2024-25641 — Cacti RCE",
     tagline: "Automated RCE exploit for Cacti 1.2.26",
     period: "2024",
@@ -235,6 +237,7 @@ export const projects: Project[] = [
   {
     slug: "cve-2024-41570-havoc",
     featured: true,
+    logo: "CVE",
     title: "CVE-2024-41570 — Havoc C2 RCE",
     tagline: "SSRF + command injection PoC for Havoc C2",
     period: "2025",
