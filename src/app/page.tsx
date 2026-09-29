@@ -153,23 +153,17 @@ function Profile() {
         </div>
       </div>
       <div className="flex flex-1 flex-col">
-        <div className="flex grow items-end pb-1 pl-4">
-          <span data-intro className="hidden font-mono text-xs text-muted/60 select-none sm:inline">
-            {/* text-3xl font-semibold tracking-tight */}
-          </span>
-        </div>
-        <div className="border-t border-line">
-          <h1 className="flex items-center gap-2 py-0.5 pl-4 text-2xl font-semibold tracking-tight sm:text-3xl">
-            <span data-intro-title>{profile.name}</span>
-            {profile.verified && (
-              <span data-intro className="inline-flex">
-                <VerifiedIcon className="text-accent" />
-              </span>
-            )}
-          </h1>
-          <div data-intro className="h-11 border-t border-line py-2.5 pl-4">
-            <ScrambleSentences sentences={profile.flipSentences} />
-          </div>
+        <h1 className="flex grow items-end gap-2 pb-1.5 pl-4 text-2xl font-semibold tracking-tight sm:text-3xl">
+          <span data-intro-title>{profile.name}</span>
+          {profile.verified && (
+            <span data-intro className="inline-flex">
+              <VerifiedIcon className="text-accent" />
+            </span>
+          )}
+        </h1>
+        <div data-intro className="separator h-8 border-t border-line" />
+        <div data-intro className="h-11 border-t border-line py-2.5 pl-4">
+          <ScrambleSentences sentences={profile.flipSentences} />
         </div>
       </div>
     </div>
