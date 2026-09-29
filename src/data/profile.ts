@@ -147,11 +147,13 @@ export type Project = {
   repo?: string;
   description: string[];
   skills: string[];
+  featured?: boolean; // shown on the home page
 };
 
 export const projects: Project[] = [
   {
     slug: "classmo",
+    featured: true,
     title: "Classmo",
     tagline: "A student book marketplace for iOS & Android",
     period: "2026",
@@ -165,6 +167,7 @@ export const projects: Project[] = [
   },
   {
     slug: "mamdani",
+    featured: true,
     title: "Mamdani",
     tagline: "AI civic issue reporting for cities",
     period: "2026",
@@ -178,6 +181,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ctf-lawsuit",
+    featured: true,
     title: "CTF Team — Lawsuit",
     tagline: "Top 10 in Canada on Hack The Box",
     period: "2024 — 2025",
@@ -203,6 +207,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ros2-hmi",
+    featured: true,
     title: "ROS2 Robot Dashboard",
     tagline: "Remote control & monitoring for a ROS 2 robot",
     period: "2026",
@@ -215,6 +220,7 @@ export const projects: Project[] = [
   },
   {
     slug: "cve-2024-25641-cacti",
+    featured: true,
     title: "CVE-2024-25641 — Cacti RCE",
     tagline: "Automated RCE exploit for Cacti 1.2.26",
     period: "2024",
@@ -228,6 +234,7 @@ export const projects: Project[] = [
   },
   {
     slug: "cve-2024-41570-havoc",
+    featured: true,
     title: "CVE-2024-41570 — Havoc C2 RCE",
     tagline: "SSRF + command injection PoC for Havoc C2",
     period: "2025",

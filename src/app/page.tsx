@@ -331,7 +331,7 @@ function Experience() {
 function Projects() {
   return (
     <div className="grid grid-cols-1 gap-3 p-4 sm:grid-cols-2">
-      {projects.slice(0, 4).map((p) => (
+      {projects.filter((p) => p.featured).slice(0, 6).map((p) => (
         <ProjectCard key={p.slug} project={p} />
       ))}
     </div>
