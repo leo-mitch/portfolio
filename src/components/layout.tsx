@@ -129,7 +129,7 @@ export function ProjectLogo({
   if (image) {
     return (
       <span className={base}>
-        <img src={image} alt={`${title} logo`} className="size-full object-contain" loading="lazy" />
+        <img src={image} alt={`${title} logo`} className="size-full object-cover" loading="lazy" />
       </span>
     );
   }

@@ -198,6 +198,7 @@ export const projects: Project[] = [
   },
   {
     slug: "slan-revolution",
+    featured: true,
     title: "Slan Révolution",
     image: "/slan.webp",
     tagline: "Full-stack site for a 160+ person LAN event",
@@ -212,7 +213,6 @@ export const projects: Project[] = [
   },
   {
     slug: "ros2-hmi",
-    featured: true,
     title: "ROS2 Robot Dashboard",
     tagline: "Remote control & monitoring for a ROS 2 robot",
     period: "2026",
