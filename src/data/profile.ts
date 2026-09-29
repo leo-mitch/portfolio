@@ -17,7 +17,7 @@ export const profile = {
     company: string | null;
     url: string | null;
   },
-  location: "Sherbrooke, Québec",
+  location: "Sherbrooke, Québec, Canada",
   timeZone: "America/Toronto",
   email: "leomitch55@outlook.com",
   website: "https://leo-mitch.me",
@@ -70,19 +70,21 @@ export const stack = [
 ];
 
 // Brand logos (monochrome, tinted via CSS mask) for stack/skill tags that have one.
-// Sourced from Simple Icons and self-hosted in /public/stack. Names without an
-// entry simply render as text.
+// Self-hosted in /public/stack, mostly from Simple Icons; SQL uses a generic
+// database glyph and Nmap/Ghidra/PowerShell come from other icon sets. Names
+// without an entry simply render as text.
 export const stackIcons: Record<string, string> = {
   TypeScript: "/stack/typescript.svg",
   JavaScript: "/stack/javascript.svg",
   Python: "/stack/python.svg",
-  C: "/stack/c.svg",
+  C: "/stack/cpp.svg",
   "C++": "/stack/cpp.svg",
   "C/C++": "/stack/cpp.svg",
   "C#": "/stack/csharp.svg",
   Java: "/stack/java.svg",
   PHP: "/stack/php.svg",
   Solidity: "/stack/solidity.svg",
+  SQL: "/stack/database.svg",
   React: "/stack/react.svg",
   "Next.js": "/stack/nextjs.svg",
   "Node.js": "/stack/nodejs.svg",
@@ -92,7 +94,10 @@ export const stackIcons: Record<string, string> = {
   Git: "/stack/git.svg",
   Linux: "/stack/linux.svg",
   Bash: "/stack/bash.svg",
+  PowerShell: "/stack/powershell.svg",
   "Burp Suite": "/stack/burpsuite.svg",
+  Ghidra: "/stack/ghidra.svg",
+  Nmap: "/stack/nmap.svg",
   Wireshark: "/stack/wireshark.svg",
 };
 
@@ -322,8 +327,8 @@ export const projects: Project[] = [
 ];
 
 export const awards = [
-  { title: "Hackathon Winner — Best Use of Gemini API", issuer: "Hack The Hill III", date: "2026" },
-  { title: "1st Place — Mon Entreprise Startup Competition", issuer: "ESG UQAM", date: "2026" },
+  { title: "Hackathon Winner — Best Use of Gemini API", issuer: "Hack The Hill III", date: "2026", url: "https://devpost.com/software/hi-kwzyut"},
+  { title: "1st Place — Mon Entreprise Startup Competition", issuer: "ESG UQAM", date: "2026", url: "https://nouvelles.esg.uqam.ca/non-categorise/le-concours-mon-entreprise-2026-recompense-la-releve-entrepreneuriale/" },
   { title: "Top 10 in Canada — Hack The Box", issuer: "Hack The Box", date: "2025" },
 ];
 
