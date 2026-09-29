@@ -133,17 +133,6 @@ export function ProjectLogo({ title, size = "md" }: { title: string; size?: "md"
 export function Footer() {
   return (
     <footer className="p-4 text-center font-mono text-xs text-muted">
-      <p>
-        Built with Next.js & Tailwind CSS. Inspired by{" "}
-        <a href="https://chanhdai.com" target="_blank" rel="noreferrer" className="text-foreground underline-offset-4 hover:text-accent hover:underline">
-          chanhdai.com
-        </a>{" "}
-        &{" "}
-        <a href="https://victoreke.com" target="_blank" rel="noreferrer" className="text-foreground underline-offset-4 hover:text-accent hover:underline">
-          victoreke.com
-        </a>
-        .
-      </p>
       <p className="mt-1">
         © {new Date().getFullYear()} {profile.name}
       </p>

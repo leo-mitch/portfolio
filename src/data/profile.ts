@@ -156,6 +156,7 @@ export const projects: Project[] = [
     tagline: "A student book marketplace for iOS & Android",
     period: "2026",
     status: "Live",
+    repo: "https://www.classmo.ca",
     description: [
       "A marketplace where students buy and sell used books, launched on iOS and Android and reaching 200+ users and 350+ listings within its first month.",
       "Co-founded and developed the app; won 1st place at ESG UQAM's Mon Entreprise competition with $10,000 in non-dilutive funding.",
@@ -163,28 +164,17 @@ export const projects: Project[] = [
     skills: ["iOS", "Android", "Full-Stack"],
   },
   {
-    slug: "ros2-hmi",
-    title: "ROS2 Robot Dashboard",
-    tagline: "Remote control & monitoring for a ROS 2 robot",
+    slug: "mamdani",
+    title: "Mamdani",
+    tagline: "AI civic issue reporting for cities",
     period: "2026",
     status: "Archived",
+    repo: "https://github.com/omaribrahim6/mamdani",
     description: [
-      "A SvelteKit dashboard to remotely monitor and control a Yahboom MicroROS-Pi5 robot, with real-time WebSocket control of movement and the camera servos.",
-      "Built ROS 2 Python nodes for sensor data, a PostgreSQL-backed API, and a live camera feed with LiDAR obstacle detection.",
+      "A civic-issue reporting platform where residents describe infrastructure problems to an AI inspector by photo and conversation, while city officials triage and track repairs on a public dashboard.",
+      "Won Best Use of Gemini API at Hack The Hill III. Built with Gemini (Live, Flash and embeddings), Next.js, React Native and PostgreSQL with pgvector.",
     ],
-    skills: ["SvelteKit", "TypeScript", "Python", "ROS 2", "WebSockets", "PostgreSQL"],
-  },
-  {
-    slug: "slan-revolution",
-    title: "Slan Révolution",
-    tagline: "Full-stack site for a 160+ person LAN event",
-    period: "2026",
-    status: "Archived",
-    description: [
-      "A full-stack web app for a 160+ participant event at Cégep de Sept-Îles, with an API and interface to dynamically update the site for future editions.",
-      "Shipped to production with the organizing team before the event date.",
-    ],
-    skills: ["React", "Node.js", "PostgreSQL", "Docker"],
+    skills: ["Next.js", "TypeScript", "Gemini API", "React Native", "PostgreSQL"],
   },
   {
     slug: "ctf-lawsuit",
@@ -199,12 +189,89 @@ export const projects: Project[] = [
     skills: ["Linux", "Python", "C++", "Reverse Engineering"],
   },
   {
+    slug: "slan-revolution",
+    title: "Slan Révolution",
+    tagline: "Full-stack site for a 160+ person LAN event",
+    period: "2026",
+    status: "Archived",
+    repo: "https://www.slanrevolution.net",
+    description: [
+      "A full-stack web app for a 160+ participant event at Cégep de Sept-Îles, with an API and interface to dynamically update the site for future editions.",
+      "Shipped to production with the organizing team before the event date.",
+    ],
+    skills: ["React", "Node.js", "PostgreSQL", "Docker"],
+  },
+  {
+    slug: "ros2-hmi",
+    title: "ROS2 Robot Dashboard",
+    tagline: "Remote control & monitoring for a ROS 2 robot",
+    period: "2026",
+    status: "Archived",
+    description: [
+      "A SvelteKit dashboard to remotely monitor and control a Yahboom MicroROS-Pi5 robot, with real-time WebSocket control of movement and the camera servos.",
+      "Built ROS 2 Python nodes for sensor data, a PostgreSQL-backed API, and a live camera feed with LiDAR obstacle detection.",
+    ],
+    skills: ["SvelteKit", "TypeScript", "Python", "ROS 2", "WebSockets", "PostgreSQL"],
+  },
+  {
+    slug: "cve-2024-25641-cacti",
+    title: "CVE-2024-25641 — Cacti RCE",
+    tagline: "Automated RCE exploit for Cacti 1.2.26",
+    period: "2024",
+    status: "Archived",
+    repo: "https://github.com/leo-mitch/CVE-2024-25641-RCE-Automated-Exploit-Cacti-1.2.26",
+    description: [
+      "An automated exploit for CVE-2024-25641, an authenticated arbitrary file write in Cacti 1.2.26's Package Import feature that leads to remote code execution.",
+      "Chains a local payload server and listener to drop and execute arbitrary PHP on the target, for authorized testing.",
+    ],
+    skills: ["Python", "Exploit Dev", "RCE", "Web Security"],
+  },
+  {
+    slug: "cve-2024-41570-havoc",
+    title: "CVE-2024-41570 — Havoc C2 RCE",
+    tagline: "SSRF + command injection PoC for Havoc C2",
+    period: "2025",
+    status: "Archived",
+    repo: "https://github.com/leo-mitch/CVE-2024-41570-Havoc-C2-RCE",
+    description: [
+      "A proof-of-concept chaining SSRF with authenticated command injection to reach remote code execution on a Havoc C2 teamserver (versions 0.3–0.6).",
+      "Demonstrates leaking teamserver origin IPs and running commands on the server.",
+    ],
+    skills: ["Python", "Bash", "SSRF", "Exploit Dev"],
+  },
+  {
+    slug: "homecraft",
+    title: "HomeCraft",
+    tagline: "Self-hosted Minecraft server admin panel",
+    period: "2026",
+    status: "Archived",
+    repo: "https://github.com/leo-mitch/HomeCraft",
+    description: [
+      "A self-hosted web dashboard to manage a local Minecraft server from a private interface — monitoring, console access, file management and player administration.",
+      "Built with SvelteKit and TypeScript, with no internet exposure required.",
+    ],
+    skills: ["SvelteKit", "TypeScript", "Node.js", "Vite"],
+  },
+  {
+    slug: "discord-ticket-bot",
+    title: "Discord Ticket Bot",
+    tagline: "Button-based support tickets for Discord",
+    period: "2026",
+    status: "Archived",
+    repo: "https://github.com/leo-mitch/Discord-Ticket-Bot",
+    description: [
+      "A support-ticket bot for Discord: users open a ticket with a button click, and each one gets its own dedicated channel for handling.",
+      "Coded from scratch with Node.js and Discord.js.",
+    ],
+    skills: ["Node.js", "Discord.js", "JavaScript"],
+  },
+  {
     slug: "portfolio",
     title: "Portfolio",
     tagline: "This site, in black and green",
     period: "2026",
     status: "Live",
-    repo: "https://github.com/leo-mitch",
+    repo: "https://github.com/leo-mitch/portfolio",
     description: [
       "My personal portfolio, built with Next.js and Tailwind CSS, with GSAP-powered motion and a terminal-inspired design.",
     ],
@@ -213,6 +280,7 @@ export const projects: Project[] = [
 ];
 
 export const awards = [
+  { title: "Hackathon Winner — Best Use of Gemini API", issuer: "Hack The Hill III", date: "2026" },
   { title: "1st Place — Mon Entreprise Startup Competition", issuer: "ESG UQAM", date: "2026" },
   { title: "Top 10 in Canada — Hack The Box", issuer: "Hack The Box", date: "2025" },
 ];
