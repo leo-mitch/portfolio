@@ -292,8 +292,26 @@ export const awards = [
   { title: "Top 10 in Canada — Hack The Box", issuer: "Hack The Box", date: "2025" },
 ];
 
-export const certifications = [
+export const certifications: { title: string; issuer: string; date: string; url?: string }[] = [
   { title: "Certified Penetration Testing Specialist (CPTS)", issuer: "Hack The Box Academy", date: "In progress" },
+  {
+    title: "Blockchain Basics",
+    issuer: "Cyfrin Updraft",
+    date: "2025",
+    url: "https://profiles.cyfrin.io/u/return/achievements/blockchain-basics",
+  },
+  {
+    title: "Solidity Smart Contract Development",
+    issuer: "Cyfrin Updraft",
+    date: "2025",
+    url: "https://profiles.cyfrin.io/u/return/achievements/solidity",
+  },
+  {
+    title: "Advanced Web3 Wallet Security",
+    issuer: "Cyfrin Updraft",
+    date: "2025",
+    url: "https://profiles.cyfrin.io/u/return/achievements/advanced-web3-wallet-security",
+  },
 ];
 
 export const posts: { title: string; date: string; slug: string }[] = [

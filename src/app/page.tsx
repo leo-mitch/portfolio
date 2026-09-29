@@ -338,7 +338,11 @@ function Projects() {
   );
 }
 
-function SimpleList({ items }: { items: { title: string; issuer: string; date: string }[] }) {
+function SimpleList({
+  items,
+}: {
+  items: { title: string; issuer: string; date: string; url?: string }[];
+}) {
   return (
     <ul>
       {items.map((a) => (
@@ -347,7 +351,19 @@ function SimpleList({ items }: { items: { title: string; issuer: string; date: s
             <AwardIcon width={12} height={12} />
           </span>
           <div className="flex-1">
-            <p className="font-medium">{a.title}</p>
+            {a.url ? (
+              <a
+                href={a.url}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center gap-1 font-medium hover:text-accent"
+              >
+                {a.title}
+                <ArrowUpRightIcon className="text-muted transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />
+              </a>
+            ) : (
+              <p className="font-medium">{a.title}</p>
+            )}
             <p className="font-mono text-xs text-muted">
               {a.issuer} · {a.date}
             </p>
