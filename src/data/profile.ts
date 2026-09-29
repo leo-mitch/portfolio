@@ -150,6 +150,7 @@ export type Project = {
   featured?: boolean; // shown on the home page
   logo?: string; // overrides the auto-generated logo letters
   image?: string; // logo image (from /public); falls back to letters when absent
+  imageFit?: "cover" | "contain"; // how the logo image fills its tile (default "cover")
 };
 
 export const projects: Project[] = [
@@ -201,6 +202,7 @@ export const projects: Project[] = [
     featured: true,
     title: "Slan Révolution",
     image: "/slan.webp",
+    imageFit: "contain",
     tagline: "Full-stack site for a 160+ person LAN event",
     period: "2026",
     status: "Archived",

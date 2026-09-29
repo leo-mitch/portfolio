@@ -117,19 +117,22 @@ export function ProjectLogo({
   title,
   label,
   image,
+  imageFit = "cover",
   size = "md",
 }: {
   title: string;
   label?: string;
   image?: string;
+  imageFit?: "cover" | "contain";
   size?: "md" | "lg";
 }) {
   const cls = size === "lg" ? "size-20 text-2xl rounded-2xl" : "size-14 text-lg rounded-xl";
   const base = `dot-grid flex shrink-0 items-center justify-center overflow-hidden border border-line bg-card transition group-hover:border-accent/60 ${cls}`;
   if (image) {
+    const fit = imageFit === "contain" ? "object-contain p-1.5" : "object-cover";
     return (
       <span className={base}>
-        <img src={image} alt={`${title} logo`} className="size-full object-cover" loading="lazy" />
+        <img src={image} alt={`${title} logo`} className={`size-full ${fit}`} loading="lazy" />
       </span>
     );
   }
