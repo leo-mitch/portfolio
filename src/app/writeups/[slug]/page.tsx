@@ -78,6 +78,10 @@ export default async function WriteupPage({ params }: PageProps<"/writeups/[slug
         </div>
       </Section>
       <Separator />
+      <Section id="machine-info" title="Machine info">
+        <WriteupContent blocks={[{ t: "p", text: w.info }]} />
+      </Section>
+      <Separator />
 
       <WriteupContent blocks={w.content} />
 

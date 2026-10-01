@@ -245,7 +245,7 @@ function Overview() {
 
 function Socials() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2">
+    <div className="grid grid-cols-1 sm:grid-cols-3">
       {socials.map((s, i) => {
         const Icon = socialIcons[s.icon];
         return (
@@ -256,10 +256,8 @@ function Socials() {
             rel="noreferrer"
             data-reveal
             data-spotlight
-            className={`group relative flex items-center gap-4 overflow-hidden border-line p-4 transition hover:bg-card ${
-              i < socials.length - 1 ? "border-b" : ""
-            } ${i % 2 === 0 ? "sm:border-r" : ""} ${
-              i >= socials.length - 2 ? "sm:border-b-0" : "sm:border-b"
+            className={`group relative flex items-center gap-3 overflow-hidden border-line p-4 transition hover:bg-card ${
+              i < socials.length - 1 ? "border-b sm:border-r sm:border-b-0" : ""
             }`}
           >
             <span className="spotlight" />
@@ -269,9 +267,9 @@ function Socials() {
             >
               <Icon width={18} height={18} />
             </span>
-            <span className="relative flex-1">
+            <span className="relative min-w-0 flex-1">
               <span className="block text-sm font-medium">{s.name}</span>
-              <span className="block font-mono text-xs text-muted">{s.handle}</span>
+              <span className="block truncate font-mono text-xs text-muted">{s.handle}</span>
             </span>
             <ArrowUpRightIcon className="text-muted transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />
           </a>

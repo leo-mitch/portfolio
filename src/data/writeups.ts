@@ -25,6 +25,7 @@ export type Writeup = {
   date: string; // ISO date the box retired / I solved it
   tagline: string;
   tags: string[];
+  info: string; // "Machine info" blurb, shown in its own section under Topics
   image?: string; // logo (from /public); falls back to letters
   imageFit?: "cover" | "contain";
   logo?: string; // letters when there is no image
@@ -58,12 +59,8 @@ const writeupList: Writeup[] = [
     tags: ["XSS", "LFI", "Hash cracking", "Port forwarding", "PHP"],
     image: "/writeups/alert.png",
     imageFit: "cover",
+    info: "Alert is an easy-difficulty Linux machine with a website to upload, view, and share markdown files. The site is vulnerable to cross-site scripting (XSS), which is exploited to access an internal page vulnerable to Arbitrary File Read and leveraged to gain access to a password hash. The hash is then cracked to reveal the credentials leveraged to gain SSH access to the target. Enumeration of processes running on the system shows a PHP file that is being executed regularly, which has excessive privileges for the management group our user is a member of and allows us to overwrite the file for code execution as root.",
     content: [
-      { t: "h", text: "Machine info" },
-      {
-        t: "p",
-        text: "Alert is an easy-difficulty Linux machine with a website to upload, view, and share markdown files. The site is vulnerable to cross-site scripting (XSS), which is exploited to access an internal page vulnerable to Arbitrary File Read and leveraged to gain access to a password hash. The hash is then cracked to reveal the credentials leveraged to gain SSH access to the target. Enumeration of processes running on the system shows a PHP file that is being executed regularly, which has excessive privileges for the management group our user is a member of and allows us to overwrite the file for code execution as root.",
-      },
       { t: "h", text: "Recon" },
       { t: "p", text: "I started with a full `nmap` scan to map the attack surface." },
       {
@@ -169,12 +166,8 @@ const writeupList: Writeup[] = [
     tags: ["Stored XSS", "SQL injection", "Gitea", "Log analysis", "Port forwarding"],
     image: "/writeups/cat.png",
     imageFit: "cover",
+    info: "Cat is a medium-difficulty Linux machine that features a custom PHP web application vulnerable to cross-site scripting (XSS), which can trigger an onerror event to bypass the application's security filters. Leveraging this XSS vulnerability, we can perform cookie hijacking to steal an administrator's cookie and elevate our privileges in the application. We can then perform a SQL Injection on a SQLite database to get remote code execution by storing a malicious web shell in the database. With access to the internal application database, we can recover a password from the database by cracking its hash to gain access as a user who has group membership to read server logs. These logs leak a clear-text password to a user accessing an internally hosted Gitea instance on version 1.22.0, vulnerable to an XSS attack via [CVE-2024-6886](https://nvd.nist.gov/vuln/detail/CVE-2024-6886) due to improper input sanitization. By exploiting [CVE-2024-6886](https://nvd.nist.gov/vuln/detail/CVE-2024-6886), we can read a private Gitea repository containing a credential for the root user.",
     content: [
-      { t: "h", text: "Machine info" },
-      {
-        t: "p",
-        text: "Cat is a medium-difficulty Linux machine that features a custom PHP web application vulnerable to cross-site scripting (XSS), which can trigger an onerror event to bypass the application's security filters. Leveraging this XSS vulnerability, we can perform cookie hijacking to steal an administrator's cookie and elevate our privileges in the application. We can then perform a SQL Injection on a SQLite database to get remote code execution by storing a malicious web shell in the database. With access to the internal application database, we can recover a password from the database by cracking its hash to gain access as a user who has group membership to read server logs. These logs leak a clear-text password to a user accessing an internally hosted Gitea instance on version 1.22.0, vulnerable to an XSS attack via [CVE-2024-6886](https://nvd.nist.gov/vuln/detail/CVE-2024-6886) due to improper input sanitization. By exploiting [CVE-2024-6886](https://nvd.nist.gov/vuln/detail/CVE-2024-6886), we can read a private Gitea repository containing a credential for the root user.",
-      },
       { t: "h", text: "Foothold — stored XSS" },
       {
         t: "p",
@@ -296,12 +289,8 @@ const writeupList: Writeup[] = [
     tags: ["SQL injection", "CVE-2024-25641", "Cacti", "Duplicati", "Chisel"],
     image: "/writeups/monitorsthree.png",
     imageFit: "cover",
+    info: "MonitorsThree is a Medium Difficulty Linux machine that features a website for a company offering networking solutions. The website has a forgotten password page vulnerable to SQL injection, which is leveraged to gain access to credentials. Further enumeration of the website reveals a subdomain featuring a Cacti instance that can be accessed with the credentials obtained from the SQL injection. The Cacti instance is vulnerable to [CVE-2024-25641](https://nvd.nist.gov/vuln/detail/CVE-2024-25641), which is leveraged to gain a foothold on the system. Further enumeration of the system reveals credentials used to access the database, where hashes are found and cracked to obtain the user password. This is then used to gain access to SSH private keys, leading to SSH access to the system. Enumeration of open ports on the system reveals a vulnerable Duplicati instance, which is leveraged to gain a shell as root.",
     content: [
-      { t: "h", text: "Machine info" },
-      {
-        t: "p",
-        text: "MonitorsThree is a Medium Difficulty Linux machine that features a website for a company offering networking solutions. The website has a forgotten password page vulnerable to SQL injection, which is leveraged to gain access to credentials. Further enumeration of the website reveals a subdomain featuring a Cacti instance that can be accessed with the credentials obtained from the SQL injection. The Cacti instance is vulnerable to [CVE-2024-25641](https://nvd.nist.gov/vuln/detail/CVE-2024-25641), which is leveraged to gain a foothold on the system. Further enumeration of the system reveals credentials used to access the database, where hashes are found and cracked to obtain the user password. This is then used to gain access to SSH private keys, leading to SSH access to the system. Enumeration of open ports on the system reveals a vulnerable Duplicati instance, which is leveraged to gain a shell as root.",
-      },
       { t: "h", text: "Recon" },
       {
         t: "p",
@@ -486,12 +475,8 @@ const writeupList: Writeup[] = [
     tags: ["Roundcube", "3DES", "Credential decryption", "CVE-2025-27591", "Symlink attack"],
     image: "/writeups/outbound.png",
     imageFit: "cover",
+    info: "Outbound is an easy-difficulty Linux machine with provided assumed breach credentials. The credentials provide access to a Roundcube instance, where the user can enumerate the version and utilize [CVE-2025-49113](https://nvd.nist.gov/vuln/detail/CVE-2025-49113), which demonstrates post-authenticated remote code execution via PHP object deserialization. After initial access to the target, we enumerate the database and find a session for the Jacob user, which, when base64 decoded, provides an encrypted password. Using an internal tool called `decrypt.sh`, we can extract the plaintext value of the password, which allows access to Roundcube as Jacob. Jacob has two messages in his inbox: one provides him with a new, updated password for the system, and another informs him that they have been granted sudo privileges to monitor system resources with a utility called `below`, which is vulnerable to [CVE-2025-27591](https://nvd.nist.gov/vuln/detail/CVE-2025-27591) — a flaw that creates logs within the `/var/log/below` directory with excessive permissions, allowing attackers to perform symlink attacks under certain conditions. We symlink `/etc/passwd` to the `error_root.log` file and write our payload to the log file via parameter injection, thereby creating a new user with the UID of the root user.",
     content: [
-      { t: "h", text: "Machine info" },
-      {
-        t: "p",
-        text: "Outbound is an easy-difficulty Linux machine with provided assumed breach credentials. The credentials provide access to a Roundcube instance, where the user can enumerate the version and utilize [CVE-2025-49113](https://nvd.nist.gov/vuln/detail/CVE-2025-49113), which demonstrates post-authenticated remote code execution via PHP object deserialization. After initial access to the target, we enumerate the database and find a session for the Jacob user, which, when base64 decoded, provides an encrypted password. Using an internal tool called `decrypt.sh`, we can extract the plaintext value of the password, which allows access to Roundcube as Jacob. Jacob has two messages in his inbox: one provides him with a new, updated password for the system, and another informs him that they have been granted sudo privileges to monitor system resources with a utility called `below`, which is vulnerable to [CVE-2025-27591](https://nvd.nist.gov/vuln/detail/CVE-2025-27591) — a flaw that creates logs within the `/var/log/below` directory with excessive permissions, allowing attackers to perform symlink attacks under certain conditions. We symlink `/etc/passwd` to the `error_root.log` file and write our payload to the log file via parameter injection, thereby creating a new user with the UID of the root user.",
-      },
       { t: "h", text: "Overview" },
       {
         t: "p",
@@ -542,7 +527,7 @@ const writeupList: Writeup[] = [
   },
 ];
 
-// Ordered easiest → hardest; ties keep their definition order (stable sort).
+// Ordered hardest → easiest; ties keep their definition order (stable sort).
 export const writeups: Writeup[] = [...writeupList].sort(
-  (a, b) => difficultyRank[a.difficulty] - difficultyRank[b.difficulty],
+  (a, b) => difficultyRank[b.difficulty] - difficultyRank[a.difficulty],
 );

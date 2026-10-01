@@ -41,6 +41,7 @@ export const initials =
 export const socials = [
   { name: "GitHub", handle: "@leo-mitch", url: "https://github.com/leo-mitch", icon: "github" },
   { name: "LinkedIn", handle: "Léo-Michel Poirier-Pigeon", url: "https://linkedin.com/in/leo-michel-poirier-pigeon", icon: "linkedin" },
+  { name: "HackTheBox", handle: "Profile #1622406", url: "https://app.hackthebox.com/public/users/1622406", icon: "hackthebox" },
 ] as const;
 
 export const stack = [
