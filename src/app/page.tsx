@@ -11,8 +11,10 @@ import {
   stack,
   stackIcons,
 } from "@/data/profile";
+import { writeups } from "@/data/writeups";
 import { Contributions } from "@/components/contributions";
 import { ProjectCard } from "@/components/project-card";
+import { WriteupCard } from "@/components/writeup-card";
 import { Section, Separator, Shell, Tag } from "@/components/layout";
 import { CopyEmail, LocalTime } from "@/components/client";
 import { ScrambleSentences } from "@/components/motion";
@@ -81,6 +83,23 @@ export default function Home() {
         >
           <Projects />
         </Section>
+        {writeups.length > 0 && (
+          <>
+            <Separator />
+            <Section
+              id="writeups"
+              title="HTB - Write-ups"
+              count={writeups.length}
+              action={
+                <Link href="/writeups" className="font-mono text-xs text-muted hover:text-accent">
+                  View all →
+                </Link>
+              }
+            >
+              <Writeups />
+            </Section>
+          </>
+        )}
         {awards.length > 0 && (
           <>
             <Separator />
@@ -328,6 +347,16 @@ function Projects() {
     <div className="grid grid-cols-1 gap-3 p-4 sm:grid-cols-2">
       {projects.filter((p) => p.featured).slice(0, 6).map((p) => (
         <ProjectCard key={p.slug} project={p} />
+      ))}
+    </div>
+  );
+}
+
+function Writeups() {
+  return (
+    <div className="grid grid-cols-1 gap-3 p-4 sm:grid-cols-2">
+      {writeups.map((w) => (
+        <WriteupCard key={w.slug} writeup={w} />
       ))}
     </div>
   );
